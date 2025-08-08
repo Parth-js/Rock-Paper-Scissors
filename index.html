@@ -2,37 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stone Paper Scissors</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Play the classic Stone Paper Scissors game against the computer!" />
 </head>
 <body>
-  <div class="main-container">
-    <h1 class="animate-title">🪨 Stone | 📄 Paper | ✂️ Scissors</h1>
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <div class="brand"><span>SPS Game</span> </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <div class="score-board">
-      <div class="score">
+  <main class="main-container">
+    <header>
+      <h1 class="animate-title" aria-label="Stone Paper Scissors Game">🌑 Stone | 📄 Paper | ✂️ Scissors</h1>
+    </header>
+
+    <section class="score-board" aria-label="Score Board">
+      <div class="score" aria-label="User Score">
         <h2>User</h2>
-        <p id="user-score">0</p>
+        <p id="user-score" aria-live="polite">0</p>
       </div>
-      <div class="score">
+      <div class="score" aria-label="Computer Score">
         <h2>Computer</h2>
-        <p id="comp-score">0</p>
+        <p id="comp-score" aria-live="polite">0</p>
       </div>
-    </div>
+    </section>
 
-    <div class="game">
-      <div class="choice" id="rock" title="Stone">🪨</div>
-      <div class="choice" id="paper" title="Paper">📄</div>
-      <div class="choice" id="scissors" title="Scissors">✂️</div>
-    </div>
+    <section class="game" role="group" aria-label="Game Choices">
+      <button class="choice" id="rock" title="Rock" aria-label="Choose Rock">🌑</button>
+      <button class="choice" id="paper" title="Paper" aria-label="Choose Paper">📄</button>
+      <button class="choice" id="scissors" title="Scissors" aria-label="Choose Scissors">✂️</button>
+    </section>
 
-    <div id="result" class="fade">Make your move!</div>
+    <section id="result" class="fade" aria-live="polite">
+      Make your move!
+    </section>
 
-    <button id="reset-btn">Reset Game</button>
-  </div>
+    <button id="reset-btn" aria-label="Reset the game">Reset Game</button>
+  </main>
 
-  <script src="script.js"></script>
+  <section id="rules" class="info-section">
+    <h2>Game Rules</h2>
+    <p>Beats ✂️, ✂️ beats 📄, and 📄 beats 🪨. Make your move and beat the computer!</p>
+  </section>
+
+  <footer id="about" class="info-section">
+    <h2>About</h2>
+    <p>Created by Parth-js | Just for fun 🎮</p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
