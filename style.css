@@ -1,3 +1,4 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +7,11 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(-45deg, #1e1f26, #2b2d3a, #383b44, #1e1f26);
   background-size: 400% 400%;
   animation: bg-animation 10s ease infinite;
   color: #fff;
+  padding-top: 80px;
 }
 
 @keyframes bg-animation {
@@ -22,6 +20,119 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Navigation */
+.navbar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffea;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00ffea;
+}
+
+/* Mobile Nav */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  top: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    max-height: 300px;
+  }
+}
+
+/* Game Container */
 .main-container {
   text-align: center;
   background: rgba(255, 255, 255, 0.05);
@@ -31,6 +142,7 @@ body {
   backdrop-filter: blur(10px);
   width: 90%;
   max-width: 500px;
+  margin: 0 auto;
   animation: popIn 1s ease;
 }
 
@@ -136,4 +248,25 @@ h1 {
 #reset-btn:hover {
   background: #00ccba;
   box-shadow: 0 0 20px #00ffea;
+}
+
+/* Info Sections */
+.info-section {
+  margin-top: 80px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #00ffea;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+  color: #ccc;
 }
