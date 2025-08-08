@@ -37,7 +37,7 @@ const updateResult = (user, comp, result) => {
   }
 
   resultText.classList.remove("fade");
-  void resultText.offsetWidth; // Reset animation
+  void resultText.offsetWidth; // reset animation
   resultText.classList.add("fade");
 
   userScoreSpan.textContent = userScore;
@@ -71,4 +71,18 @@ resetBtn.addEventListener("click", () => {
   compScoreSpan.textContent = 0;
   resultText.textContent = "Make your move!";
   resultText.style.color = "#fff";
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
